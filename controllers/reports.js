@@ -83,6 +83,7 @@ const getReportsByUserID = async (req, res, next) => {
 }
 
 // Function to create a report
+//
 const createReport = async (req, res, next) => {
     const { user_id, latitude, longtitude, symtoms, precondition, infected_area, infected_person, details, status } = req.body;
     const newReport = { user_id, latitude, longtitude, symtoms, precondition, infected_area, infected_person, details, status };
