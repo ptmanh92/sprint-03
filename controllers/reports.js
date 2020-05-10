@@ -1,6 +1,5 @@
 let DUMMY_DATA = [
     {
-        application_id: 1000,
         user_id: 1,
         date: new Date(),
         latitude: 52.5103812,
@@ -11,9 +10,8 @@ let DUMMY_DATA = [
         infected_person: 0,
         details: 'My thoughts 1',
         status: 'sent'
-    }, 
+    },
     {
-        application_id: 1001,
         user_id: 2,
         date: new Date(),
         latitude: 52.6330641,
@@ -26,9 +24,8 @@ let DUMMY_DATA = [
         status: 'processed'
     },
     {
-        application_id: 1002,
-        user_id: 3,
-        date: "2020-05-10T06:57:52.247Z",
+        user_id: 1,
+        date: new Date(),
         latitude: 52.4929199,
         longtitude: 13.5316011,
         symtoms: "fieber",
@@ -39,69 +36,96 @@ let DUMMY_DATA = [
         status: "done"
     }
 ];
+const moongoose = require('../database/mongoose');
+const Report = require('../models/report');
+const collection_name = 'reports';
 
-// Function to get application by application ID
-const getApplicationByAppID = (req, res, next) => {
-    const applicationID = req.params.a_id;
-    const report = DUMMY_DATA.find(r => {
-        return r.application_id == applicationID;
-    })
-
-    if (!report) {
-        return res.status(404).json({message: 'No application found.'});
-    }
-
-    res.json({report});
+// Function to get all reports
+const getAllReports = async (req, res, next) => {
+    const reports = await Report.find();
+    res.json({reports});
 }
 
-// Function to get application by user ID
-const getApplicationByUserID = (req, res, next) => {
+// Function to get report by report ID
+const getReportByID = async (req, res, next) => {
+    const reportID = req.params.r_id;
+    let report;
+    try {
+        report = await Report.findById(reportID);
+    } catch (error) {
+        console.log('Failed to get report by ID ' + reportID);
+        return next(error);
+    }
+
+    if (!report) {
+        console.log('No report found.');
+    }
+
+    res.json({report: report.toObject( {getters: true} )});
+}
+
+// Function to get reports by user ID
+const getReportsByUserID = async (req, res, next) => {
     const userID = req.params.u_id;
-    const report = DUMMY_DATA.find(r => {
-        return r.user_id == userID;
-    })
-
-    if (!report) {
-        return res.status(404).json({message: 'No application found.'});
+    let reports;
+    try {
+        reports = await Report.find({ user_id: userID });
+    } catch (error) {
+        console.log('Failed to get report by user ID ' + userID);
+        return next(error);
     }
 
-    res.json({report});
+    if (!reports || reports.length == 0) {
+        console.log('No reports found.');
+    }
+
+    res.json({reports: reports.map(report => report.toObject( {getters: true} ))});
 }
 
-// Function to create an application
-const createApplication = (req, res, next) => {
-    const { application_id, user_id, date, latitude, longtitude, symtoms, precondition, infected_area, infected_person, details, status } = req.body;
-    const newApplication = { application_id, user_id, date, latitude, longtitude, symtoms, precondition, infected_area, infected_person, details, status };
+// Function to create a report
+const createReport = async (req, res, next) => {
+    const { user_id, latitude, longtitude, symtoms, precondition, infected_area, infected_person, details, status } = req.body;
+    const newReport = { user_id, latitude, longtitude, symtoms, precondition, infected_area, infected_person, details, status };
+    const createdReport = new Report(newReport);
 
-    DUMMY_DATA.push(newApplication);
-
-    res.status(201).json(newApplication);
+    try {
+        const result = await createdReport.save();
+    } catch (error) {
+        console.log('Failed to create new report.');
+        return next(error);
+    }
+    
+    // Return the new report on success
+    res.status(201).json(createdReport);
 };
 
-// Function to update an application 
-const updateApplication = (req, res, next) => {
-    const { status } = req.body;
-    const applicationID = req.params.a_id;
-    
-    const updatedApplication = {...DUMMY_DATA.find(r => r.application_id == applicationID)};
-    const applicationPos = DUMMY_DATA.findIndex(r => r.application_id == applicationID);
-    updatedApplication.status = status;
-    DUMMY_DATA[applicationPos] = updatedApplication;
+// Function to update an report 
+const updateReport = (req, res, next) => {
+    // const { status } = req.body;
+    // const reportID = req.params.r_id;
+    // let report;
+    // try {
+    //     report = await Report.findById(reportID);
+    // } catch (error) {
+    //     console.log('Failed to get report by ID ' + reportID);
+    //     return next(error);
+    // }
 
-    res.status(200).json(updatedApplication);
+    // res.status(200).json();
 }
 
-// Function to delete an application
-const deleteApplication = (req, res, next) => {
-    const applicationID = req.params.a_id;
-    DUMMY_DATA = DUMMY_DATA.filter(r => r.application_id != applicationID);
+// Function to delete an report
+const deleteReport = (req, res, next) => {
+    // const reportID = req.params.a_id;
+    // DUMMY_DATA = DUMMY_DATA.filter(r => r.report_id != reportID);
 
-    res.status(200).json({message: 'Deleted'});
+    // res.status(200).json({message: 'Deleted'});
 }
 
 
-exports.getApplicationByAppID = getApplicationByAppID;
-exports.getApplicationByUserID = getApplicationByUserID;
-exports.createApplication = createApplication;
-exports.updateApplication = updateApplication;
-exports.deleteApplication = deleteApplication;
+exports.getAllReports = getAllReports;
+exports.getReportByID = getReportByID;
+exports.getReportsByUserID = getReportsByUserID;
+exports.createReport = createReport;
+exports.updateReport = updateReport;
+exports.deleteReport = deleteReport;
