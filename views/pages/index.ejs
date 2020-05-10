@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://manhphan.com/assets/css/styles.css">
+    <link rel="stylesheet" href="https://manhphan.com/htw/19_WS/Cryptography/Lab02/assets/css/styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -21,16 +21,13 @@
       <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="https://people.f4.htw-berlin.de/~weberwu/crypto/" target="_blank">GitHub</a>
+            <a class="nav-link" href="http://home.htw-berlin.de/~kleinen/classes/ss2020/wtat1/schedule/" target="_blank">Schedule</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="https://people.f4.htw-berlin.de/~weberwu/crypto/schedule.shtml" target="_blank">Schedule</a>
+            <a class="nav-link" href="http://home.htw-berlin.de/~kleinen/classes/ss2020/wtat1/topics/topic-05-mongo/" target="_blank">Topic</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="https://people.f4.htw-berlin.de/~weberwu/crypto/Labs/Lab-2.shtml" target="_blank">Exercise / Lab</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="[The_Manh_Phan_556774_Leonid_Ricker_554903]_Cryptography_Lab_02_WS1920.zip">Download</a>
+            <a class="nav-link" href="https://github.com/ptmanh92/sprint-03">GitHub / Download</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" data-toggle="modal" data-target="#about_us_box">About us</a>
@@ -39,182 +36,166 @@
       </div>
     </nav>
 
-    <div class="container" style="margin-top:80px;">
-      <h2>Morse Code Translator</h2>
-      <div class="row">
-        <div class="col-lg-8">
-          <!-- Encryption box -->
-          <div class="card">
-            <div class="card-header htw_theme_green">Encryption</div>
-            <div class="card-body">
-              <label>Your message</label>
-              <textarea class="form-control" name="message_en" id="message_en"></textarea>
-              <label>Cipher</label>
-              <textarea class="form-control" name="cipher_en" id="cipher_en"></textarea>
-            </div>
-            <div class="card-footer text-right">
-              <button id="reset_en" class="btn htw_theme_green">Reset</button>
-              <button id="btn_en" class="btn htw_theme_green">Encode</button>
-            </div>
-          </div>
-
-          <!-- Decryption box -->
-          <div class="card">
-            <div class="card-header htw_theme_green">Decyption</div>
-            <div class="card-body">
-              <label>Your cipher</label>
-              <textarea class="form-control" name="cipher_de" id="cipher_de"></textarea>
-              <label>Message</label>
-              <textarea class="form-control" name="message_de" id="message_de"></textarea>
-            </div>
-            <div class="card-footer text-right">
-              <button id="reset_de" class="btn htw_theme_green">Reset</button>
-              <button id="btn_de" class="btn htw_theme_green">Decode</button>
-            </div>
-          </div>
+    <div class="container" style="margin: 100px auto 80px auto;">
+        <h2>List of reports</h2>
+        <div class="row">
+            <ul class="list-group col-sm-12" id="list_of_reports">
+                <!--
+                <li class="list-group-item">
+                    <div class="row">
+                        <div class="col-sm-9">Title here</div>
+                        <div class="col-sm-3 text-right">
+                            <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#module8"><i class="fas fa-info-circle"></i></button>
+                        </div>
+                    </div>
+                    <div id="module8" class="collapse">
+                        <hr>Detail text here
+                    </div>
+                </li>-->
+            </ul>
         </div>
 
-        <div class="col-lg-4">
-          <!-- Settings box -->
-          <div class="card">
-            <div class="card-header htw_theme_blue">Settings</div>
-            <div class="card-body">
-              <div class="input-group mb-1 input-group-sm">
-                <div class="input-group-prepend"><span class="input-group-text">Dot symbol</span></div>
-                <input type="text" class="form-control" id="dot_symbol" wtx-context="CFD0DE31-063E-483F-B772-894383614C51">
-              </div>
-              <div class="input-group mb-1 input-group-sm">
-                <div class="input-group-prepend"><span class="input-group-text">Dot units</span></div>
-                <input type="number" class="form-control" id="dot_unit" wtx-context="79802A32-D66A-43EF-8514-CFEADAC08265">
-              </div>
-              <div class="input-group mb-1 input-group-sm">
-                <div class="input-group-prepend"><span class="input-group-text">Dash symbol</span></div>
-                <input type="text" class="form-control" id="dash_symbol" wtx-context="79CDF8B3-5450-4AFD-8725-297DD31763FD">
-              </div>
-              <div class="input-group mb-1 input-group-sm">
-                <div class="input-group-prepend"><span class="input-group-text">Dash units</span></div>
-                <input type="number" class="form-control" id="dash_unit" wtx-context="26CBAE20-676C-45B8-8770-FE0F22C1655A">
-              </div>
-              <div class="input-group mb-1 input-group-sm">
-                <div class="input-group-prepend"><span class="input-group-text">Space standard symbol</span></div>
-                <input type="text" class="form-control" id="space_symbol" wtx-context="E10B8539-ED85-46C2-8912-010F757A43B4">
-              </div>
-              <div class="input-group mb-1 input-group-sm">
-                <div class="input-group-prepend"><span class="input-group-text">Symbol between parts</span></div>
-                <input type="text" class="form-control" id="parts_symbol" wtx-context="8D3D023F-40DD-4E3A-940E-65EE1439EB21">
-              </div>
-              <div class="input-group mb-1 input-group-sm">
-                <div class="input-group-prepend"><span class="input-group-text">Space units between parts</span></div>
-                <input type="number" class="form-control" id="parts_space_unit" wtx-context="E897A58B-684E-4BAC-9620-68B35208BC40">
-              </div>
-              <div class="input-group mb-1 input-group-sm">
-                <div class="input-group-prepend"><span class="input-group-text">Symbol between letters</span></div>
-                <input type="text" class="form-control" id="letters_symbol" wtx-context="081D48D3-6B88-4507-B67B-70C1B22B176C">
-              </div>
-              <div class="input-group mb-1 input-group-sm">
-                <div class="input-group-prepend"><span class="input-group-text">Space units between letters</span></div>
-                <input type="number" class="form-control" id="letters_space_unit" wtx-context="99430BDC-13A4-4647-8B3E-072C30AA3240">
-              </div>
-              <div class="input-group mb-1 input-group-sm">
-                <div class="input-group-prepend"><span class="input-group-text">Symbol between words</span></div>
-                <input type="text" class="form-control" id="words_symbol" wtx-context="7A9B8521-53DD-4F35-8738-2FF722343AD3">
-              </div>
-              <div class="input-group mb-1 input-group-sm">
-                <div class="input-group-prepend"><span class="input-group-text">Space units between words</span></div>
-                <input type="number" class="form-control" id="words_space_unit" wtx-context="E49B5C5C-8AEE-4301-841B-FBC13A477A5A">
-              </div>
-            </div>
-            <div class="card-footer text-right">
-              <button id="reset_all_btn" class="btn htw_theme_orange">Reset all</button>
-              <button id="default_btn" class="btn htw_theme_blue">Default</button>
-              <button id="apply_btn" class="btn htw_theme_blue">Apply</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- The notification box -->
-      <div class="modal fade" id="changes_applied">
+        <!-- The about box -->
+        <div class="modal fade" id="about_us_box">
         <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content">
-            <!-- Modal body -->
-            <div id="notice_txt" class="modal-body"></div>
-            <!-- Modal footer -->
-            <div class="modal-footer">
-              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- The about box -->
-      <div class="modal fade" id="about_us_box">
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content">
+            <div class="modal-content">
             <!-- Modal Header -->
             <div class="modal-header">
-              <h4 class="modal-title">About us</h4>
-              <button type="button" class="close" data-dismiss="modal">×</button>
+                <h4 class="modal-title">About us</h4>
+                <button type="button" class="close" data-dismiss="modal">×</button>
             </div>
             <!-- Modal body -->
             <div class="modal-body">                    
-              <table class="table table-bordered">
-                <tbody>
-                  <tr>
-                    <th rowspan="2">Group members / Students</th>
-                    <td>The Manh Phan</td>
-                  </tr>
-                  <tr>
-                    <td>Leonid Ricker</td>
-                  </tr>
-                  <tr>
-                    <th>University</th>
-                    <td>University of Applied Sciences Berlin</td>
-                  </tr>
-                  <tr>
-                    <th>Course of study</th>
-                    <td>International Media Computing</td>
-                  </tr>
-                  <tr>
-                    <th>Course</th>
-                    <td>WTAT2 Cryptography</td>
-                  </tr>
-                  <tr>
-                    <th rowspan="2">Course instructors</th>
-                    <td>Prof. Dr. Debora Weber-Wulff</td>
-                  </tr>
-                  <tr>
-                    <td>Dr. Hermann Thiel</td>
-                  </tr>
-                  <tr>
-                    <th>Lab</th>
-                    <td>02 - Morse Code</td>
-                  </tr>
-                  <tr>
-                    <th>Date</th>
-                    <td>26.10.2019</td>
-                  </tr>
-
-                </tbody>
-              </table>
+                <table class="table table-bordered">
+                    <tbody>
+                        <tr>
+                            <th rowspan="2">Group members / Students</th>
+                            <td>The Manh Phan</td>
+                        </tr>
+                        <tr>
+                            <td>Cong Nguyen-Dinh</td>
+                        </tr>
+                        <tr>
+                            <td>Vu Minh Le</td>
+                        </tr>
+                        <tr>
+                            <th>University</th>
+                            <td>University of Applied Sciences Berlin</td>
+                        </tr>
+                        <tr>
+                            <th>Course of study</th>
+                            <td>International Media Computing</td>
+                        </tr>
+                        <tr>
+                            <th>Course</th>
+                            <td>WTAT1 Web Technology</td>
+                        </tr>
+                        <tr>
+                            <th>Course instructors</th>
+                            <td>Prof. Dr. Barne Kleinen</td>
+                        </tr>
+                        <tr>
+                            <th>Sprint</th>
+                            <td>03 - Persistence with Mongo</td>
+                        </tr>
+                        <tr>
+                            <th>Date</th>
+                            <td>10.05.2020</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
             <!-- Modal footer -->
             <div class="modal-footer">
-              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
             </div>
-          </div>
+            </div>
         </div>
-      </div>
-
+        </div>
     </div>
 
+    <script>
+        let fetchingData;
+        let list_of_reports = document.getElementById("list_of_reports");
+
+        function createReport(data_record) {
+            // Create li item
+            let li_report = document.createElement("li");
+            li_report.setAttribute("class", "list-group-item");
+            list_of_reports.appendChild(li_report);
+
+            let row_wrapper = document.createElement("div");
+            row_wrapper.setAttribute("class", "row");
+            li_report.appendChild(row_wrapper);
+
+            let item_title = document.createElement("div");
+            item_title.setAttribute("class", "col-sm-9");
+            item_title.innerText = "Report of user no." + data_record.user_id;
+            row_wrapper.appendChild(item_title);
+
+            let div_btn = document.createElement("div");
+            div_btn.setAttribute("class", "col-sm-3 text-right");
+            row_wrapper.appendChild(div_btn);
+
+            let collapse_btn = document.createElement("button");
+            collapse_btn.setAttribute("class", "btn btn-info");
+            collapse_btn.setAttribute("data-toggle", "collapse");
+            collapse_btn.setAttribute("data-target", "#module" + data_record.user_id);
+            div_btn.appendChild(collapse_btn);
+
+            let btn_icon = document.createElement("i");
+            btn_icon.setAttribute("class", "fas fa-info-circle");
+            collapse_btn.appendChild(btn_icon);
+
+            // Create detail collapse box
+            let detail_box = document.createElement("div");
+            detail_box.setAttribute("id", "module" + data_record.user_id);
+            detail_box.setAttribute("class", "collapse");
+            li_report.appendChild(detail_box);
+
+            let hr_tag = document.createElement("hr");
+            detail_box.appendChild(hr_tag);
+
+            let item_content = document.createElement("p");
+            let br_tag = "<br>";
+            let record_date = new Date(data_record.date);
+            let item_date = record_date.getDate() + "." + (record_date.getMonth() + 1) + "." + record_date.getFullYear();
+            item_content.innerHTML = "Date" + item_date + br_tag + 
+                                     "Latitude:" + data_record.latitude + br_tag + 
+                                     "Longtitude: " + data_record.longtitude + br_tag + 
+                                     "Symtoms: " + data_record.symtoms + br_tag + 
+                                     "Precondition: " + data_record.precondition + br_tag + 
+                                     "Came from infected area: " + data_record.infected_area + br_tag +
+                                     "Contacted with infected person: " + data_record.infected_person + br_tag + 
+                                     "Notes: " + data_record.details + br_tag + 
+                                     "Status: " + data_record.status + br_tag;
+            detail_box.appendChild(item_content);
+        }
+
+        document.addEventListener('DOMContentLoaded', async function() {
+            await fetch('http://127.0.0.1:5000/api/reports/')
+            .then(res => {
+                return res.json();
+            })
+            .then((data) => {
+                
+                fetchingData = data.reports;
+                // console.log(fetchingData);
+            });
+
+
+            if (fetchingData) {
+                for (data of fetchingData) {
+                    createReport(data);
+                    console.log(data);
+                }
+            }
+        });
+    </script>
+
     <footer class="bg-dark navbar-dark text-center">
-      Course: WTAT2 Cryptography | WiSe2019/20 | 26.10.2019<br>
-      © 2019 The Manh Phan &amp; Leonid Ricker
+        Course: WTAT1 Web Technology | WiSe2019/20 | 10.05.2020<br>
+        © 2019 The Manh Phan &amp; Cong Nguyen-Dinh &amp; Vu Minh Le
     </footer>
-
-    <script src="assets/js/script.js"></script>
-  
-
 </body>
 </html>

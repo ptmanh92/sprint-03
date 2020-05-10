@@ -14,6 +14,7 @@ app.use('/api/reports', reportsRoute);
 // Set view engine
 app.set('view engine', 'ejs');
 app.get('/', function(req, res) {
+    
     res.render('pages/index.ejs');
 });
 
