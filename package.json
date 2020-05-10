@@ -1,0 +1,27 @@
+{
+  "name": "sprint-03",
+  "version": "1.0.0",
+  "description": "WTAT1 Sprint 03",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ptmanh92/sprint-03.git"
+  },
+  "author": "The Manh Phan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ptmanh92/sprint-03/issues"
+  },
+  "homepage": "https://github.com/ptmanh92/sprint-03#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3"
+  }
+}
