@@ -2,11 +2,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://manhphan.com/htw/19_WS/Cryptography/Lab02/assets/css/styles.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="/css/styles.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <title>Corona report - List of reports</title>
 </head>
 <body>
@@ -36,9 +37,9 @@
       </div>
     </nav>
 
-    <div class="container" style="margin: 100px auto 80px auto;">
+    <div class="container" style="margin: 100px auto 80px auto; min-height: 600px;">
         <h2>List of reports</h2>
-        <div class="row">
+        <div class="row" style="margin-top: 40px;">
             <ul class="list-group col-sm-12" id="list_of_reports">
                 <!--
                 <li class="list-group-item">
@@ -57,60 +58,60 @@
 
         <!-- The about box -->
         <div class="modal fade" id="about_us_box">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-            <!-- Modal Header -->
-            <div class="modal-header">
-                <h4 class="modal-title">About us</h4>
-                <button type="button" class="close" data-dismiss="modal">×</button>
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">About us</h4>
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                </div>
+                <!-- Modal body -->
+                <div class="modal-body">                    
+                    <table class="table table-bordered">
+                        <tbody>
+                            <tr>
+                                <th rowspan="2">Group members / Students</th>
+                                <td>The Manh Phan</td>
+                            </tr>
+                            <tr>
+                                <td>Cong Nguyen-Dinh</td>
+                            </tr>
+                            <tr>
+                                <td>Vu Minh Le</td>
+                            </tr>
+                            <tr>
+                                <th>University</th>
+                                <td>University of Applied Sciences Berlin</td>
+                            </tr>
+                            <tr>
+                                <th>Course of study</th>
+                                <td>International Media Computing</td>
+                            </tr>
+                            <tr>
+                                <th>Course</th>
+                                <td>WTAT1 Web Technology</td>
+                            </tr>
+                            <tr>
+                                <th>Course instructors</th>
+                                <td>Prof. Dr. Barne Kleinen</td>
+                            </tr>
+                            <tr>
+                                <th>Sprint</th>
+                                <td>03 - Persistence with Mongo</td>
+                            </tr>
+                            <tr>
+                                <th>Date</th>
+                                <td>10.05.2020</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+                </div>
             </div>
-            <!-- Modal body -->
-            <div class="modal-body">                    
-                <table class="table table-bordered">
-                    <tbody>
-                        <tr>
-                            <th rowspan="2">Group members / Students</th>
-                            <td>The Manh Phan</td>
-                        </tr>
-                        <tr>
-                            <td>Cong Nguyen-Dinh</td>
-                        </tr>
-                        <tr>
-                            <td>Vu Minh Le</td>
-                        </tr>
-                        <tr>
-                            <th>University</th>
-                            <td>University of Applied Sciences Berlin</td>
-                        </tr>
-                        <tr>
-                            <th>Course of study</th>
-                            <td>International Media Computing</td>
-                        </tr>
-                        <tr>
-                            <th>Course</th>
-                            <td>WTAT1 Web Technology</td>
-                        </tr>
-                        <tr>
-                            <th>Course instructors</th>
-                            <td>Prof. Dr. Barne Kleinen</td>
-                        </tr>
-                        <tr>
-                            <th>Sprint</th>
-                            <td>03 - Persistence with Mongo</td>
-                        </tr>
-                        <tr>
-                            <th>Date</th>
-                            <td>10.05.2020</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <!-- Modal footer -->
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-            </div>
-            </div>
-        </div>
         </div>
     </div>
 
@@ -130,7 +131,7 @@
 
             let item_title = document.createElement("div");
             item_title.setAttribute("class", "col-sm-9");
-            item_title.innerText = "Report of user no." + data_record.user_id;
+            item_title.innerText = "Report of user " + data_record.user_id;
             row_wrapper.appendChild(item_title);
 
             let div_btn = document.createElement("div");
@@ -160,13 +161,16 @@
             let br_tag = "<br>";
             let record_date = new Date(data_record.date);
             let item_date = record_date.getDate() + "." + (record_date.getMonth() + 1) + "." + record_date.getFullYear();
-            item_content.innerHTML = "Date" + item_date + br_tag + 
-                                     "Latitude:" + data_record.latitude + br_tag + 
+            let item_precondition = data_record.precondition ? "yes" : "no";
+            let item_infected_area = data_record.infected_area ? "yes" : "no";
+            let item_infected_person = data_record.infected_person ? "yes" : "no";
+            item_content.innerHTML = "Date: " + item_date + br_tag + 
+                                     "Latitude: " + data_record.latitude + br_tag + 
                                      "Longtitude: " + data_record.longtitude + br_tag + 
                                      "Symtoms: " + data_record.symtoms + br_tag + 
-                                     "Precondition: " + data_record.precondition + br_tag + 
-                                     "Came from infected area: " + data_record.infected_area + br_tag +
-                                     "Contacted with infected person: " + data_record.infected_person + br_tag + 
+                                     "Precondition: " + item_precondition + br_tag + 
+                                     "Came from infected area: " + item_infected_area + br_tag +
+                                     "Contacted with infected person: " + item_infected_person + br_tag + 
                                      "Notes: " + data_record.details + br_tag + 
                                      "Status: " + data_record.status + br_tag;
             detail_box.appendChild(item_content);
@@ -178,16 +182,13 @@
                 return res.json();
             })
             .then((data) => {
-                
                 fetchingData = data.reports;
-                // console.log(fetchingData);
             });
 
 
             if (fetchingData) {
                 for (data of fetchingData) {
                     createReport(data);
-                    console.log(data);
                 }
             }
         });

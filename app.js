@@ -1,5 +1,6 @@
 // Setup Express and dependencies
 const express =  require('express');
+const path = require('path');
 const bodyParser = require('body-parser');
 const app = express();
 app.use(bodyParser.json());
@@ -14,9 +15,10 @@ app.use('/api/reports', reportsRoute);
 // Set view engine
 app.set('view engine', 'ejs');
 app.get('/', function(req, res) {
-    
+
     res.render('pages/index.ejs');
 });
+app.use(express.static(__dirname + '/public'));
 
 // Start server
 app.listen(PORT, () => {
