@@ -95,7 +95,7 @@ const createReport = async (req, res, next) => {
         console.log('Failed to create new report.');
         return next(error);
     }
-    
+
     // Return the new report on success
     res.status(201).json(createdReport);
 };
