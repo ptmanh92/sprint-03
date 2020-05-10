@@ -11,6 +11,12 @@ const reportsRoute = require('./routes/reports');
 // Use routes
 app.use('/api/reports', reportsRoute);
 
+// Set view engine
+app.set('view engine', 'ejs');
+app.get('/', function(req, res) {
+    res.render('pages/index.ejs');
+});
+
 // Start server
 app.listen(PORT, () => {
     console.log('Server started on PORT ' + PORT);
