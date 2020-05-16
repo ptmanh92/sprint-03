@@ -231,7 +231,7 @@
             let collapse_btn = document.createElement("button");
             collapse_btn.setAttribute("class", "btn btn-info");
             collapse_btn.setAttribute("data-toggle", "collapse");
-            collapse_btn.setAttribute("data-target", "#module" + data_record.user_id);
+            collapse_btn.setAttribute("data-target", "#module" + data_record._id);
             div_btn.appendChild(collapse_btn);
 
             let btn_icon = document.createElement("i");
@@ -240,7 +240,7 @@
 
             // Create detail collapse box
             let detail_box = document.createElement("div");
-            detail_box.setAttribute("id", "module" + data_record.user_id);
+            detail_box.setAttribute("id", "module" + data_record._id);
             detail_box.setAttribute("class", "collapse");
             li_report.appendChild(detail_box);
 
