@@ -267,7 +267,7 @@
         }
 
         document.addEventListener('DOMContentLoaded', async function() {
-            await fetch('http://127.0.0.1:5000/api/reports/')
+            await fetch('/api/reports/')
             .then(res => {
                 return res.json();
             })
@@ -310,7 +310,7 @@
             }
 
             try {
-                const fetchResponse = await fetch('http://127.0.0.1:5000/api/reports/', options);
+                const fetchResponse = await fetch('/api/reports/', options);
                 const data = await fetchResponse.json();
                 console.log(data);
                 if (data) {
