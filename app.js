@@ -11,6 +11,7 @@ const PORT = 5000;
 const reportsRoute = require('./routes/reports');
 
 app.use(cors());
+app.set('port', PORT);
 
 // Use routes
 app.use('/api/reports', reportsRoute);
@@ -22,7 +23,4 @@ app.get('/', function(req, res) {
 });
 app.use(express.static(__dirname + '/public'));
 
-// Start server
-app.listen(PORT, () => {
-    console.log('Server started on PORT ' + PORT);
-})
+module.exports = app;
