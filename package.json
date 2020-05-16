@@ -4,8 +4,8 @@
   "description": "WTAT1 Sprint 03",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js"
+    "test": "jest --watch",
+    "start": "nodemon main.js"
   },
   "repository": {
     "type": "git",
@@ -23,9 +23,17 @@
     "ejs": "^3.1.2",
     "express": "^4.17.1",
     "mongodb": "^3.5.7",
-    "mongoose": "^5.9.13"
+    "mongoose": "^5.9.13",
+    "supertest": "^4.0.2"
   },
   "devDependencies": {
+    "jest": "^26.0.1",
     "nodemon": "^2.0.3"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ]
   }
 }
